@@ -91,25 +91,21 @@ install_soga() {
     fi
 
     if  [ $# == 0 ] ;then
-        last_version=$(curl -Ls "https://aaaa.hhkk.cf/latest.json" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+        last_version=$(curl -Ls "https://api.github.com/repos/sgmjwbg/crack-soga-v2ray/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
         if [[ ! -n "$last_version" ]]; then
             echo -e "${red}检测 soga 版本失败，可能是超出 Github API 限制，请稍后再试，或手动指定 soga 版本安装${plain}"
             exit 1
         fi
         echo -e "检测到 soga 最新版本：${last_version}，开始安装"
-        echo '127.0.0.1       soga.sprov.xyz' | sudo tee -a /etc/hosts
-        echo '127.0.0.1       doc.sprov.xyz' | sudo tee -a /etc/hosts
-        wget -N --no-check-certificate -O /usr/local/soga.tar.gz https://aaaa.hhkk.cf/soga.tar.gz
+        wget -N --no-check-certificate -O /usr/local/soga.tar.gz https://aaaa.hhkk.cf/${last_version}/soga-cracked-linux64.tar.gz
         if [[ $? -ne 0 ]]; then
             echo -e "${red}下载 soga 失败，请确保你的服务器能够下载 Github 的文件${plain}"
             exit 1
         fi
     else
         last_version=$1
-        url="https://aaaa.hhkk.cf/soga.tar.gz"
+        url="https://aaaa.hhkk.cf/${last_version}/soga-cracked-linux64.tar.gz"
         echo -e "开始安装 soga v$1"
-        echo '127.0.0.1       soga.sprov.xyz' | sudo tee -a /etc/hosts
-        echo '127.0.0.1       doc.sprov.xyz' | sudo tee -a /etc/hosts
         wget -N --no-check-certificate -O /usr/local/soga.tar.gz ${url}
         if [[ $? -ne 0 ]]; then
             echo -e "${red}下载 soga v$1 失败，请确保此版本存在${plain}"
@@ -131,7 +127,7 @@ install_soga() {
     if [[ ! -f /etc/soga/soga.conf ]]; then
         cp soga.conf /etc/soga/
         echo -e ""
-        echo -e "RManLuo 大佬破解 章鱼哥搬运并修改 TG群组@woaizyg"
+        echo -e "全新安装，请先参看 wiki 教程：https://github.com/sprov065/soga/wiki，配置必要的内容"
     else
         systemctl start soga
         sleep 2
