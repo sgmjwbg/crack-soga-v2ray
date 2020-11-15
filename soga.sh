@@ -1,33 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@sgmjwbg 
-RManLuo
-/
-crack-soga-v2ray
-3
-214
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-crack-soga-v2ray/soga.sh
-@RManLuo
-RManLuo Add soga.sh
-Latest commit 709b173 18 days ago
- History
- 1 contributor
-451 lines (409 sloc)  11.3 KB
-  
 #!/bin/bash
 
 red='\033[0;31m'
