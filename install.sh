@@ -99,15 +99,17 @@ install_soga() {
         echo -e "检测到 soga 最新版本：${last_version}，开始安装"
         echo '127.0.0.1       soga.sprov.xyz' | sudo tee -a /etc/hosts
         echo '127.0.0.1       doc.sprov.xyz' | sudo tee -a /etc/hosts
-        wget -N --no-check-certificate -O /usr/local/soga.tar.gz https://aaaa.hhkk.cf/${last_version}/soga-cracked-linux64.tar.gz
+        wget -N --no-check-certificate -O /usr/local/soga.tar.gz https://www.sspanel.nl/soga/core/soga-cracked-linux64.tar.gz
         if [[ $? -ne 0 ]]; then
             echo -e "${red}下载 soga 失败，请确保你的服务器能够下载 Github 的文件${plain}"
             exit 1
         fi
     else
         last_version=$1
-        url="https://github.com/RManLuo/crack-soga-v2ray/releases/download/${last_version}/soga-cracked-linux64.tar.gz"
+        url="https://www.sspanel.nl/soga/core/soga-cracked-linux64.tar.gz"
         echo -e "开始安装 soga v$1"
+        echo '127.0.0.1       soga.sprov.xyz' | sudo tee -a /etc/hosts
+        echo '127.0.0.1       doc.sprov.xyz' | sudo tee -a /etc/hosts
         wget -N --no-check-certificate -O /usr/local/soga.tar.gz ${url}
         if [[ $? -ne 0 ]]; then
             echo -e "${red}下载 soga v$1 失败，请确保此版本存在${plain}"
@@ -129,7 +131,7 @@ install_soga() {
     if [[ ! -f /etc/soga/soga.conf ]]; then
         cp soga.conf /etc/soga/
         echo -e ""
-        echo -e "全新安装，请先参看 wiki 教程：https://github.com/sprov065/soga/wiki，配置必要的内容"
+        echo -e "RManLuo 大佬破解 章鱼哥搬运并修改 TG群组@woaizyg"
     else
         systemctl start soga
         sleep 2
@@ -148,7 +150,7 @@ install_soga() {
     if [[ ! -f /etc/soga/dns.yml ]]; then
         cp dns.yml /etc/soga/
     fi
-    curl -o /usr/bin/soga -Ls https://raw.githubusercontent.com/RManLuo/crack-soga-v2ray/master/soga.sh
+    curl -o /usr/bin/soga -Ls https://www.sspanel.nl/soga/install/soga.sh
     chmod +x /usr/bin/soga
     echo -e ""
     echo "soga 管理脚本使用方法: "
