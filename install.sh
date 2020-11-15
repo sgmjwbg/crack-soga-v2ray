@@ -131,7 +131,7 @@ install_soga() {
     if [[ ! -f /etc/soga/soga.conf ]]; then
         cp soga.conf /etc/soga/
         echo -e ""
-        echo -e "RManLuo 大佬破解 章鱼哥搬运并修改 TG群组@woaizyg"
+        echo -e "RManLuo 大佬破解 sk哥搬运并修改 TG群组000"
     else
         systemctl start soga
         sleep 2
