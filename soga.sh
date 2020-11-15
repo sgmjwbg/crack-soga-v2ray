@@ -1,3 +1,33 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@sgmjwbg 
+RManLuo
+/
+crack-soga-v2ray
+3
+214
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+crack-soga-v2ray/soga.sh
+@RManLuo
+RManLuo Add soga.sh
+Latest commit 709b173 18 days ago
+ History
+ 1 contributor
+451 lines (409 sloc)  11.3 KB
+  
 #!/bin/bash
 
 red='\033[0;31m'
@@ -84,7 +114,7 @@ before_show_menu() {
 }
 
 install() {
-    bash <(curl -Ls https://www.sspanel.nl/soga/install/install.sh)
+    bash <(curl -Ls https://raw.githubusercontent.com/RManLuo/crack-soga-v2ray/master/install.sh)
     if [[ $? == 0 ]]; then
         if [[ $# == 0 ]]; then
             start
@@ -108,7 +138,7 @@ update() {
 #        fi
 #        return 0
 #    fi
-    bash <(curl -Ls https://www.sspanel.nl/soga/install/install.sh) $version
+    bash <(curl -Ls https://raw.githubusercontent.com/RManLuo/crack-soga-v2ray/master/install.sh) $version
     if [[ $? == 0 ]]; then
         echo -e "${green}更新完成，已自动重启 soga，请使用 soga status 查看启动情况${plain}"
         exit
@@ -248,7 +278,7 @@ install_bbr() {
 }
 
 update_shell() {
-    wget -O /usr/bin/soga -N --no-check-certificate https://www.sspanel.nl/soga/install/soga.sh
+    wget -O /usr/bin/soga -N --no-check-certificate https://github.com/RManLuo/crack-soga-v2ray/raw/master/soga.sh
     if [[ $? != 0 ]]; then
         echo ""
         echo -e "${red}下载脚本失败，请检查本机能否连接 Github${plain}"
@@ -365,7 +395,7 @@ show_usage() {
 show_menu() {
     echo -e "
   ${green}soga 后端管理脚本，${plain}${red}不适用于docker${plain}
---- RManLuo 大佬破解 章鱼哥搬运并修改 TG群组@woaizyg ---
+--- https://github.com/RManLuo/crack-soga-v2ray ---
   ${green}0.${plain} 退出脚本
 ————————————————
   ${green}1.${plain} 安装 soga
@@ -449,3 +479,15 @@ if [[ $# > 0 ]]; then
 else
     show_menu
 fi
+© 2020 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
